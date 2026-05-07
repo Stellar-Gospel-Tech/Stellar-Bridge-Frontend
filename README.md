@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stellar Bridge — Frontend
+
+Next.js frontend for the [Stellar Bridge](https://github.com/Stellar-Gospel-Tech/Stellar-Bidge) — a trust-minimized bridge between Ethereum and Stellar.
+
+> **Status:** Early development — scaffold only. Contract wiring comes after the bridge contracts are complete.
+
+## Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [RainbowKit](https://www.rainbowkit.com/) + [Wagmi](https://wagmi.sh/) — Ethereum wallet connection
+- [Freighter API](https://docs.freighter.app/) — Stellar wallet connection
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page |
+| `/bridge/eth-to-stellar` | Lock ERC-20 on Ethereum, receive SEP-41 on Stellar |
+| `/bridge/stellar-to-eth` | Lock SEP-41 on Stellar, receive ERC-20 on Ethereum |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cp .env.example .env.local   # fill in your keys
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | From [cloud.walletconnect.com](https://cloud.walletconnect.com) |
+| `NEXT_PUBLIC_ETH_BRIDGE_ADDRESS` | Deployed `StellarBridge.sol` address |
+| `NEXT_PUBLIC_STELLAR_BRIDGE_CONTRACT_ID` | Deployed Soroban bridge contract ID |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Relationship to the Bridge Contracts
 
-## Learn More
+This repo is a companion to [Stellar-Gospel-Tech/Stellar-Bidge](https://github.com/Stellar-Gospel-Tech/Stellar-Bidge).  
+The frontend is developed independently and wired to the contracts once they are deployed on testnet (Layer 4 of the build plan).
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
