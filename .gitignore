@@ -42,3 +42,6 @@ next-env.d.ts
 
 # override global gitignore — lock file must be committed for CI
 !package-lock.json
+
+# private — issue scripts stay local only
+/scripts/
