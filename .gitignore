@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# override global gitignore — lock file must be committed for CI
+!package-lock.json
